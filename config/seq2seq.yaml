@@ -1,0 +1,25 @@
+model:
+  emb_dim: 128
+  hid_dim: 256
+
+train:
+  batch_size: 64
+  val_batch_size: 16
+  epochs: 30
+  lr: 0.001
+  teacher_forcing_ratio: 0.6
+  patience: 5
+  weight_decay: 0.0001
+
+
+data:
+  train_path: data/splits/train.csv
+  val_path: data/splits/val.csv
+  test_path: data/splits/test.csv
+
+logging:
+  save_dir: checkpoints/seq2seq
+  log_dir: runs/seq2seq
+
+inference:
+  max_len: 100

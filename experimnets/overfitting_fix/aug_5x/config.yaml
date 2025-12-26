@@ -1,0 +1,26 @@
+experiment_name: overfitting_fix_aug_x5
+
+stage: refinement
+
+baseline_reference:
+  description: phonological noise only (0.3–1.0)
+  issue: overfitting to canonical pronunciation
+
+augmentation:
+  phonological_noise:
+    enabled: true
+    probability: 0.5
+  random_drop_noise:
+    enabled: true
+    probability: 0.2
+  random_change_noise:
+    enabled: true
+    probability: 0.2
+  data_scaling:
+    factor: x5
+
+model:
+  type: seq2seq_with_attention
+
+training:
+  selection_criterion: best_validation_bleu

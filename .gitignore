@@ -1,0 +1,17 @@
+# model & runs
+runs/
+*.pt
+*.pkl
+
+# logs
+logs/
+tensorboard/
+
+# data
+data/processed/*.csv
+data/raw/*.csv
+
+# python
+__pycache__/
+*.pyc
+.venv/
