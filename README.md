@@ -46,6 +46,57 @@ m_i: 해당 발음에 대응하는 한국어 의미 표현
 **Output** (Korean semantic meaning):  
 `감사합니다`
 
+## Repository Structure
+
+본 레포지토리는 데이터 구축, 증강, 실험, 모델 구현 단계를 명확히 분리하여
+연구 지향적인 워크플로우를 따르도록 구성되어 있다.
+
+```text
+Phonetic-translation-seq2seq/
+│
+├── data/
+│   ├── raw/                    # 원본 일본어 문장 (비공개)
+│   ├── augmentation/           # 발음 노이즈 증강 스크립트
+│   │   ├── augment_dataset.py
+│   │   └── README.md
+│   ├── make_splits.py          # train / val / test 분할 스크립트
+│   └── README.md               # 데이터 구성 및 생성 과정 설명
+│
+├── experiments/
+│   ├── baseline/               # 증강 강도별 기본 실험
+│   │   ├── aug_0.3/
+│   │   ├── aug_0.5/
+│   │   ├── aug_0.7/
+│   │   └── aug_1.0/
+│   │
+│   ├── overfitting_fix/aug_5x/ # 데이터 x5 증강 기반 과적합 완화 실험
+│   │   ├── config.yaml
+│   │   └── README.md
+│   │
+│   └── README.md               # 실험 설정 및 BLEU 평가 결과 정리
+│
+├── models/
+│   └── seq2seq/
+│       ├── seq2seq.py          # Seq2Seq with Attention 모델 정의
+│       ├── train.py            # 학습 스크립트
+│       ├── eval.py             # BLEU 기반 평가 스크립트
+│       └── infer.py            # 추론(inference) 스크립트
+│
+├── config/
+│   └── seq2seq.yaml            # 최종 실험 파라미터 설정
+│
+├── utils/
+│   ├── __init__.py      # 공용 유틸리티 패키지 초기화
+│   ├── config.py        # YAML 기반 실험 설정 로딩 및 파라미터 관리
+|   ├── dataset.py       # Seq2Seq 학습을 위한 Dataset / DataLoader 정의
+|   └── vocab.py         # 문자 단위 vocab 생성 및 직렬화 (src / tgt)
+|
+├── docs/                       # 발표 자료 및 문서
+│
+├── README.md                   # 프로젝트 개요 및 전체 설명
+└── requirements.txt            # 실험 환경 재현을 위한 의존성 목록
+
+```
 ## Project Background
 
 본 프로젝트는 대학 딥러닝 수업에서 진행된 팀 프로젝트를 기반으로 한다.
