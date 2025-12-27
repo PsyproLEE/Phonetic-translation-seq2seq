@@ -15,13 +15,13 @@ end-to-end sequence-to-sequence task로 정의한 것이다.
 
 데이터셋은 다음 절차를 통해 구성되었다.
 
-1. 일본어 문장을 Papago를 사용해 변환하여
-  -한국어 발음 표기 (phonetic transcription)
-  -한국어 의미 표현 (semantic meaning)
+1. 일본어 문장을 Papago를 사용해 변환하여<br>
+    -한국어 발음 표기 (phonetic transcription)<br>
+    -한국어 의미 표현 (semantic meaning)
    
 2. 이렇게 생성된 (발음, 의미) 쌍을 학습 데이터로 사용한다.
 
-이 과정에서 일본어 문장은 모델의 직접 입력으로 사용되지 않으며,
+이 과정에서 일본어 문장은 모델의 직접 입력으로 사용되지 않으며,<br>
 다단계 번역 파이프라인에서 발생할 수 있는 **오류 누적(cascading error)**을 피하기 위해
 발음 → 의미 간의 직접 매핑 구조를 채택하였다.
 
@@ -35,8 +35,8 @@ end-to-end sequence-to-sequence task로 정의한 것이다.
 
 D = { (p_i, m_i) }
 
--p_i: Papago로 생성된 한국어 발음 표기
--m_i: 해당 발음에 대응하는 한국어 의미 표현
+p_i: Papago로 생성된 한국어 발음 표기<br>
+m_i: 해당 발음에 대응하는 한국어 의미 표현
 
 ## Example
 
