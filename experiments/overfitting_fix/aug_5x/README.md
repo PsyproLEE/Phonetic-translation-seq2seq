@@ -31,13 +31,14 @@ All noise transformations are applied **only to the input (phonetic) sequences**
 Target (semantic) sentences remain unchanged.
 
 ## Dataset Composition
-
-Total dataset = Original
-+ Augmentation (prob=0.3)
-+ Augmentation (prob=0.7)
-+ Random drop noise
-+ Random change noise
-
+```
+Total dataset =
+  Original
+  + Augmentation (prob=0.3)
+  + Augmentation (prob=0.7)
+  + Random drop noise
+  + Random change noise
+```
 
 
 ## Training Setup
