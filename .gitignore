@@ -15,3 +15,4 @@ data/raw/*.csv
 __pycache__/
 *.pyc
 .venv/
+.idea
